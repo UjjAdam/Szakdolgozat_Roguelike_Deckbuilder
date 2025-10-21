@@ -4,6 +4,7 @@ using UnityEngine;
 public class Perk 
 {
     public Sprite Image => data.Image;
+    public string Description => data.Description;
     private readonly PerkData data;
 
     private readonly PerkCondition condition;

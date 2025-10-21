@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CounterAttack
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: -5114178245782678679, guid: b8827ba6d73e9d24a998a566e1794e90, type: 3}
+  <Description>k__BackingField: On Enemy Attack Deal 1 Damage Back
   <PerkCondition>k__BackingField:
     rid: 374558954664493125
   <autoTargetEffect>k__BackingField:

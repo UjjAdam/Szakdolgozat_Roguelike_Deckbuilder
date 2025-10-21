@@ -1974,7 +1974,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroData: {fileID: 11400000, guid: 60b42998dd9d833419b34b876a499dfe, type: 2}
-  perkData: {fileID: 11400000, guid: 98041c8359b690b4b9d84c9a5bb431a8, type: 2}
+  perkDatas:
+  - {fileID: 11400000, guid: 98041c8359b690b4b9d84c9a5bb431a8, type: 2}
+  - {fileID: 11400000, guid: 18b443b7388af924dade6325df695d37, type: 2}
   enemyDatas:
   - {fileID: 11400000, guid: b5f77d83577e4b54ea9f2e5b053bf3e4, type: 2}
   - {fileID: 11400000, guid: b5f77d83577e4b54ea9f2e5b053bf3e4, type: 2}

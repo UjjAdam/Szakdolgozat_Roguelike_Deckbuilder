@@ -4,7 +4,7 @@ using UnityEngine;
 public class MatchSetupSystem : MonoBehaviour
 {
     [SerializeField] private HeroData heroData;
-    [SerializeField] private PerkData perkData;
+    [SerializeField] private List<PerkData> perkDatas;
     [SerializeField] private List<EnemyData> enemyDatas;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -14,7 +14,17 @@ public class MatchSetupSystem : MonoBehaviour
         HeroSystem.Instance.Setup(heroData);
         EnemySystem.Instance.Setup(enemyDatas);
         CardSystem.Instance.Setup(heroData.StarterDeck);
-        PerkSystem.Instance.AddPerk(new Perk(perkData));
+
+        //hozzáadja az összes perket a perkDatas-ból mivel, azért kell így mert csak 1 perket ad hozzá a System egyszerre
+        if (perkDatas != null)
+        {
+            foreach (var perkData in perkDatas)
+            {
+                PerkSystem.Instance.AddPerk(new Perk(perkData));
+            }
+        }
+
+
         DrawCardsGameAction drawCardsGA = new(5);
         ActionSystem.Instance.Perform(drawCardsGA);
     }
