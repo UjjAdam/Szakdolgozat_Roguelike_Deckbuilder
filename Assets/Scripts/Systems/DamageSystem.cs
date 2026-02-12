@@ -16,24 +16,30 @@ public class DamageSystem : MonoBehaviour
         ActionSystem.DetachPerformer<DealDamageGameAction>();
     }
 
-    
-
     private IEnumerator DealDamagePerformer(DealDamageGameAction dealDamageGA)
     {
         foreach (var target in dealDamageGA.Targets)
         {
+            // (safe-guard for multi-hit effects)
+            if (target == null)
+                continue;
+
             target.Damage(dealDamageGA.Amount);
+
             if (target is EnemyView enemyView)
             {
-                Instantiate(enemyDamagedVFX, target.transform.position, Quaternion.identity);
+                    Instantiate(enemyDamagedVFX, target.transform.position, Quaternion.identity);
             }
             else
             {
-                Instantiate(heroDamagedVFX, target.transform.position, Quaternion.identity);
+                    Instantiate(heroDamagedVFX, target.transform.position, Quaternion.identity);
             }
 
-                yield return new WaitForSeconds(0.15f);
-            if (target.CurrentHealth <= 0)
+            // kis várakozás
+            yield return new WaitForSeconds(0.15f);
+
+            // Csekkolás hogy a célpont még nem tûnt el azaz nem halt meg közben
+            if (target != null && target.CurrentHealth <= 0)
             {
                 if (target is EnemyView enemyView1)
                 {

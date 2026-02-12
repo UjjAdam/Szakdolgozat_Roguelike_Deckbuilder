@@ -1979,8 +1979,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18b443b7388af924dade6325df695d37, type: 2}
   enemyDatas:
   - {fileID: 11400000, guid: b5f77d83577e4b54ea9f2e5b053bf3e4, type: 2}
-  - {fileID: 11400000, guid: b5f77d83577e4b54ea9f2e5b053bf3e4, type: 2}
   - {fileID: 11400000, guid: 53fc901c8ccdc2e498fa92ffd0a546c7, type: 2}
+  - {fileID: 11400000, guid: 618293187fdbdd3499e07bf12df91ec9, type: 2}
+  - {fileID: 11400000, guid: 05d72da79cf4a35419591d854a81e6e1, type: 2}
 --- !u!1 &995701094
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,9 +44,38 @@ public class EnemySystem : Singleton<EnemySystem>
                 ApplyBurnGameAction applyBurnGA = new(burnStacks, enemy);
                 ActionSystem.Instance.AddReaction(applyBurnGA);
             }
-            AttackHeroGameAction attackHeroGA = new(enemy);
-            ActionSystem.Instance.AddReaction(attackHeroGA);
 
+            // enemy data alapján dönt:
+            // -AttackPower > 0 -> attack hero
+            // -ShieldPower > 0 -> ARMOR az összes élõ ellenségre
+            // -BurnPower > 0 -> BURN hero
+            if (enemy.AttackPower > 0)
+            {
+                AttackHeroGameAction attackHeroGA = new(enemy);
+                ActionSystem.Instance.AddReaction(attackHeroGA);
+            }
+            else if (enemy.ShieldPower > 0)
+            {
+                // az összes élõ ellenséget targeteli
+                List<CombatantView> aliveEnemies = new();
+                foreach (var e in enemyBoardView.EnemyViews)
+                {
+                    if (e.CurrentHealth > 0)
+                        aliveEnemies.Add(e);
+                }
+                if (aliveEnemies.Count > 0)
+                {
+                    AddStatusEffectGameAction addArmorGA = new(StatusEffectType.ARMOR, enemy.ShieldPower, aliveEnemies);
+                    ActionSystem.Instance.AddReaction(addArmorGA);
+                }
+            }
+            else if (enemy.BurnPower > 0)
+            {
+                // burn stacket rak a hõsre
+                List<CombatantView> heroTarget = new() { HeroSystem.Instance.HeroView };
+                AddStatusEffectGameAction addBurnGA = new(StatusEffectType.BURN, enemy.BurnPower, heroTarget);
+                ActionSystem.Instance.AddReaction(addBurnGA);
+            }
         }
         yield return null;
         

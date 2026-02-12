@@ -61,6 +61,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatantView
       objectReference: {fileID: 0}
+    - target: {fileID: 5062608224611311864, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062608224611311864, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5083112089574619749, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -101,14 +109,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8259320286953489291, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
-      propertyPath: burnSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d246d04e333437d4092ba4cf6d71e685, type: 3}
-    - target: {fileID: 8259320286953489291, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
-      propertyPath: armorSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a224b0ccb57542847b5cda9734995736, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
