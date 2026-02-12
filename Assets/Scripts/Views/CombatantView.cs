@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatantView : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class CombatantView : MonoBehaviour
 
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private StatusEffectsUI statusEffectsUI;
+    [SerializeField] private Slider healtbarslider;
 
     public int MaxHealth { get; private set; }
 
@@ -33,6 +35,10 @@ public class CombatantView : MonoBehaviour
     private void UpdateHealthText()
     {
         healthText.text = "HP: " + CurrentHealth;
+        
+        // konvertálás a slider 0 és 1 értéke miatt
+        float ratio = (float)CurrentHealth / (float)MaxHealth;
+        healtbarslider.value = Mathf.Clamp01(ratio);
     }
 
     public void Damage(int damageAmount)
