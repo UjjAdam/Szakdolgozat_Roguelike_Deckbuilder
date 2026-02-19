@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class CombatManager : MonoBehaviour
+public class HealManager : MonoBehaviour
 {
     public void SessionEnd()
     {

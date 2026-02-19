@@ -18,5 +18,11 @@ public static class SceneDatabase
         public const string Session = "Session";
 
         public const string Combat = "CombatScene";
+       
+        public const string Chest = "ChestScene";
+
+        public const string Travelsal = "TravelsalScene";
+
+        public const string Heal = "HealScene";
     }
 }
