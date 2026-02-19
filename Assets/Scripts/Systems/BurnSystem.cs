@@ -37,11 +37,9 @@ public class BurnSystem : MonoBehaviour
                 KillHeroGameAction killHeroGA = new(heroView);
                 ActionSystem.Instance.AddReaction(killHeroGA);
 
-                // Game over
+                // Game over - csak az actiont adjuk hozzá, a LoseSystem kezeli a megállítást
                 LoseGameAction loseGA = new LoseGameAction();
                 ActionSystem.Instance.AddReaction(loseGA);
-
-                Time.timeScale = 0f;
             }
         }
 

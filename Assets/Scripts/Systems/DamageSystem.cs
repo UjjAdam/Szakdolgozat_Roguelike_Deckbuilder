@@ -28,10 +28,12 @@ public class DamageSystem : MonoBehaviour
 
             if (target is EnemyView enemyView)
             {
+                if (enemyDamagedVFX != null)
                     Instantiate(enemyDamagedVFX, target.transform.position, Quaternion.identity);
             }
             else
             {
+                if (heroDamagedVFX != null)
                     Instantiate(heroDamagedVFX, target.transform.position, Quaternion.identity);
             }
 
@@ -48,15 +50,12 @@ public class DamageSystem : MonoBehaviour
                 }
                 else if (target is HeroView heroView)
                 {
-                    //Hero dies
+                    // Hero dies - only add actions, don't set Time.timeScale here
                     KillHeroGameAction killHeroGA = new(heroView);
                     ActionSystem.Instance.AddReaction(killHeroGA);
 
-                    //Game Over Scene, Hero lost all health
                     LoseGameAction loseGA = new LoseGameAction();
                     ActionSystem.Instance.AddReaction(loseGA);
-
-                    Time.timeScale = 0f;
                 }
             }
         }

@@ -13,6 +13,10 @@ public class ActionSystem : Singleton<ActionSystem>
     private static Dictionary<Type, List<Action<GameAction>>> postSubs = new();
     private static Dictionary<Type, Func<GameAction,IEnumerator>> performers = new();
 
+    // mapping to be able to remove the exact wrapper when unsubscribing
+    private static Dictionary<Type, Dictionary<Delegate, Action<GameAction>>> preWrappedMap = new();
+    private static Dictionary<Type, Dictionary<Delegate, Action<GameAction>>> postWrappedMap = new();
+
     public void Perform(GameAction action, System.Action OnPerformFinished = null)
     {
         if (isPerforming) return;
@@ -27,7 +31,9 @@ public class ActionSystem : Singleton<ActionSystem>
     }
     public void AddReaction(GameAction gameAction)
     {
-        reactions?.Add(gameAction);
+        if (reactions == null)
+            reactions = new List<GameAction>();
+        reactions.Add(gameAction);
     }
 
     private IEnumerator Flow(GameAction action, Action OnFlowFinished = null)
@@ -61,7 +67,9 @@ public class ActionSystem : Singleton<ActionSystem>
         Type type = action.GetType();
         if (subs.ContainsKey(type))
         {
-            foreach (var sub in subs[type])
+            // iterate over a copy in case subscribers modify subscriptions
+            var copy = new List<Action<GameAction>>(subs[type]);
+            foreach (var sub in copy)
             {
                 sub(action);
             }
@@ -70,7 +78,15 @@ public class ActionSystem : Singleton<ActionSystem>
 
     private IEnumerator PerformReactions()
     {
-        foreach (var reaction in reactions)
+        if (reactions == null || reactions.Count == 0)
+            yield break;
+
+        // iterate over a snapshot because reactions list may be modified during flow
+        var snapshot = new List<GameAction>(reactions);
+        // clear current reactions so newly added reactions will be collected fresh
+        reactions.Clear();
+
+        foreach (var reaction in snapshot)
         {
             yield return Flow(reaction);
         }
@@ -79,7 +95,12 @@ public class ActionSystem : Singleton<ActionSystem>
 
     private IEnumerator PerformActions()
     {
-        foreach (var reaction in reactions)
+        if (reactions == null || reactions.Count == 0)
+            yield break;
+
+        var snapshot = new List<GameAction>(reactions);
+        reactions.Clear();
+        foreach (var reaction in snapshot)
         {
             yield return Flow(reaction);
         }
@@ -111,28 +132,46 @@ public class ActionSystem : Singleton<ActionSystem>
     public static void SubscribeReaction<T>(Action<T> reaction,ReactionTiming timing) where T : GameAction
     {
         Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
+        var wrappedMap = timing == ReactionTiming.PRE ? preWrappedMap : postWrappedMap;
         void wrappedReaction(GameAction action) => reaction((T)action);
-        if (subs.ContainsKey(typeof(T)))
+
+        Type t = typeof(T);
+
+        if (subs.ContainsKey(t))
         {
-            subs[typeof(T)].Add(wrappedReaction);
+            subs[t].Add(wrappedReaction);
         }
         else
         {
-            subs.Add(typeof(T), new());
-            subs[typeof(T)].Add(wrappedReaction);
+            subs.Add(t, new());
+            subs[t].Add(wrappedReaction);
         }
+
+        if (!wrappedMap.ContainsKey(t))
+            wrappedMap[t] = new Dictionary<Delegate, Action<GameAction>>();
+
+        // store mapping so we can remove exact wrapper later
+        wrappedMap[t][reaction] = wrappedReaction;
     }
 
     public static void UnsubscribeReaction<T>(Action<T> reaction, ReactionTiming timing) where T : GameAction
     {
         Dictionary<Type, List<Action<GameAction>>> subs = timing == ReactionTiming.PRE ? preSubs : postSubs;
-        
-        if (subs.ContainsKey(typeof(T)))
+        var wrappedMap = timing == ReactionTiming.PRE ? preWrappedMap : postWrappedMap;
+        Type t = typeof(T);
+
+        if (subs.ContainsKey(t) && wrappedMap.ContainsKey(t) && wrappedMap[t].ContainsKey(reaction))
         {
-            void wrappedReaction(GameAction action) => reaction((T)action);
-            subs[typeof(T)].Add(wrappedReaction);
+            Action<GameAction> wrapped = wrappedMap[t][reaction];
+            subs[t].Remove(wrapped);
+            wrappedMap[t].Remove(reaction);
+
+            // if no more entries, clean up
+            if (subs[t].Count == 0)
+                subs.Remove(t);
+            if (wrappedMap.ContainsKey(t) && wrappedMap[t].Count == 0)
+                wrappedMap.Remove(t);
         }
-        
     }
 
     public void Reset()
@@ -140,7 +179,11 @@ public class ActionSystem : Singleton<ActionSystem>
         preSubs.Clear();
         postSubs.Clear();
         performers.Clear();
-        reactions.Clear();
+        preWrappedMap.Clear();
+        postWrappedMap.Clear();
+        reactions?.Clear();
+        reactions = null;
+        isPerforming = false;
     }
 
 }

@@ -28,7 +28,7 @@ public class CaveEntryUI : MonoBehaviour//,IPointerEnterHandler, IPointerExitHan
 
     private void OnTravelButtonClicked()
     {
-        TraversalManager manager = FindObjectOfType<TraversalManager>();
+        TraversalManager manager = FindFirstObjectByType<TraversalManager>();
         if (manager == null)
         {
             Debug.LogWarning("TraversalManager not found in scene. Make sure a TraversalManager exists.");
