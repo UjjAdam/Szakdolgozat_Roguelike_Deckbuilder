@@ -12,6 +12,7 @@ public class EnergySystem : Singleton<EnergySystem>
     {
         ActionSystem.AttachPerformer<SpendEnergyGameAction>(SpendEnergyPerformer);
         ActionSystem.AttachPerformer<RefillEnergyGameAction>(RefillEnergyPerformer);
+        ActionSystem.AttachPerformer<GainEnergyGameAction>(GainEnergyPerformer);
         ActionSystem.SubscribeReaction<EnemyTurnGameAction>(EnemyTurnPostReaction, ReactionTiming.POST);
     }
 
@@ -19,6 +20,7 @@ public class EnergySystem : Singleton<EnergySystem>
     {
         ActionSystem.DetachPerformer<SpendEnergyGameAction>();
         ActionSystem.DetachPerformer<RefillEnergyGameAction>();
+        ActionSystem.DetachPerformer<GainEnergyGameAction>();
         ActionSystem.UnsubscribeReaction<EnemyTurnGameAction>(EnemyTurnPostReaction, ReactionTiming.POST);
     }
 
@@ -34,6 +36,12 @@ public class EnergySystem : Singleton<EnergySystem>
         yield return null;
     }
 
+    private IEnumerator GainEnergyPerformer(GainEnergyGameAction gainEnergyGA)
+    {
+        currentEnergy = currentEnergy + gainEnergyGA.Amount;
+        energyUI.UpdateEnergyText(currentEnergy);
+        yield return null;
+    }
     private IEnumerator RefillEnergyPerformer(RefillEnergyGameAction refillEnergyGA)
     {
         currentEnergy = MAX_ENERGY;
