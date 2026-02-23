@@ -7,6 +7,9 @@ public class Perk
     public string Description => data.Description;
     private readonly PerkData data;
 
+    // PerkData ellenõrzés duplikációért
+    public PerkData Source => data;
+
     private readonly PerkCondition condition;
     private readonly AutoTargetEffect effect;
 

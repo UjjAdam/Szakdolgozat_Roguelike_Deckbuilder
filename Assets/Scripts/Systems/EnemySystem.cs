@@ -85,10 +85,15 @@ public class EnemySystem : Singleton<EnemySystem>
     {
         EnemyView attacker = attackHeroGA.Attacker;
 
-        //Attack "animation"
-        Tween tween = attacker.transform.DOMoveY(attacker.transform.position.y + 1f, 0.15f);
-        yield return tween.WaitForCompletion();
-        attacker.transform.DOMoveY(attacker.transform.position.y - 1f, 0.25f);
+        // Capture start Y
+        float startY = attacker.transform.position.y;
+
+        // Attack "animation" - move up then back to original Y
+        Tween upTween = attacker.transform.DOMoveY(startY + 1f, 0.15f);
+        yield return upTween.WaitForCompletion();
+
+        Tween downTween = attacker.transform.DOMoveY(startY, 0.25f);
+        yield return downTween.WaitForCompletion();
 
         //Deal Damage
         DealDamageGameAction dealDamageGA = new(attacker.AttackPower, new() {HeroSystem.Instance.HeroView }, attackHeroGA.Caster);
