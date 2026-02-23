@@ -35,10 +35,18 @@ public class CombatantView : MonoBehaviour
     private void UpdateHealthText()
     {
         healthText.text = "HP: " + CurrentHealth;
-        
-        // konvertálás a slider 0 és 1 értéke miatt
-        float ratio = (float)CurrentHealth / (float)MaxHealth;
+        float ratio = MaxHealth <= 0 ? 0f : (float)CurrentHealth / (float)MaxHealth;
         healtbarslider.value = Mathf.Clamp01(ratio);
+    }
+
+    // Allow restoring current health when a new HeroView instance is created for the same session hero.
+    public void SetCurrentHealth(int health)
+    {
+        CurrentHealth = Mathf.Clamp(health, 0, MaxHealth);
+        UpdateHealthText();
+
+        if (this is HeroView)
+            HeroSystem.Instance?.SaveHeroHealth(CurrentHealth);
     }
 
     public void Damage(int damageAmount)
@@ -65,12 +73,16 @@ public class CombatantView : MonoBehaviour
             {
                 CurrentHealth = 0;
             }
-            
+        }
+
+        // Persist hero health immediately when hero is damaged
+        if (this is HeroView)
+        {
+            HeroSystem.Instance?.SaveHeroHealth(CurrentHealth);
         }
 
         transform.DOShakePosition(0.2f, 0.5f);
         UpdateHealthText();
-
     }
 
     public void AddStatusEffect(StatusEffectType type, int stackCount)
@@ -95,8 +107,6 @@ public class CombatantView : MonoBehaviour
             {
                 statusEffects.Remove(type);
             }
-
-
         }
         statusEffectsUI.UpdateStatusEffectUI(type, GetStatusEffectStacks(type));
     }

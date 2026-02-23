@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,15 +8,21 @@ public class MatchSetupSystem : MonoBehaviour
     [SerializeField] private List<PerkData> perkDatas;
     [SerializeField] private List<EnemyData> enemyDatas;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
+    // Start is a coroutine so we can wait for session systems to be ready
+    private IEnumerator Start()
     {
+
+        // Wait until the Session-scene HeroSystem has been created/initialized
+        yield return new WaitUntil(() => HeroSystem.Instance != null);
+
         CardSystem.Instance.ResetDeck();
+
         HeroSystem.Instance.Setup(heroData);
         CardSystem.Instance.Setup(heroData.StarterDeck);
-        //régi EnemySystem.Instance.Setup(enemyDatas);
+
         GenerateEnemies();
         AddPerks();
+
         DrawCardsGameAction drawCardsGA = new(5);
         ActionSystem.Instance.Perform(drawCardsGA);
     }

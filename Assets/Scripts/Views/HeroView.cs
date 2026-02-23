@@ -15,4 +15,11 @@ public class HeroView : CombatantView
         if (heroData != null && heroData.DeathImage != null)
             SetSprite(heroData.DeathImage);
     }
+
+    private void OnDestroy()
+    {
+        // avoid HeroSystem keeping a dangling reference to a destroyed scene object
+        if (HeroSystem.Instance != null)
+            HeroSystem.Instance.UnregisterHeroView(this);
+    }
 }
