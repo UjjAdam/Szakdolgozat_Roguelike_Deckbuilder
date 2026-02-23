@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class HeroSystem : Singleton<HeroSystem>
 {
-    // no longer serialized — register the scene HeroView at runtime
+    // no longer serialized — register the scene HeroView at runtime or let Setup find it
     public HeroView HeroView { get; private set; }
 
-    // Session-level saved value. Session scene holds this system.
+    // Session-level saved values. Session scene holds this system.
     private int savedCurrentHealth = -1;
+    private int savedMaxHealth = -1; //store max health so Heal scene can restore to full
 
     public void OnEnable()
     {
@@ -33,12 +34,20 @@ public class HeroSystem : Singleton<HeroSystem>
             if (HeroView == null)
             {
                 Debug.LogWarning("HeroSystem.Setup: no HeroView found in scene. MatchSetupSystem should ensure a HeroView prefab exists in the Combat scene.");
+                // still set savedMaxHealth from heroData so Heal can work even if view is missing
+                savedMaxHealth = heroData != null ? heroData.Health : savedMaxHealth;
                 return;
             }
         }
 
-        // Initialize the view with data (this sets MaxHealth and CurrentHealth to heroData.Health)
+        // Initialize the view with data (sets MaxHealth and CurrentHealth)
         HeroView.Setup(heroData);
+
+        // Ensure savedMaxHealth tracks the hero's max HP
+        if (heroData != null)
+            savedMaxHealth = heroData.Health;
+        else
+            savedMaxHealth = HeroView.MaxHealth;
 
         // Restore saved HP if present (Session stored it)
         if (savedCurrentHealth >= 0)
@@ -53,8 +62,29 @@ public class HeroSystem : Singleton<HeroSystem>
         HeroView = heroView;
         if (HeroView == null) return;
 
-        // Only apply savedCurrentHealth if we already have a valid saved value.
+        // ensure savedMaxHealth is known
+        if (savedMaxHealth < 0)
+            savedMaxHealth = HeroView.MaxHealth;
+
         if (savedCurrentHealth >= 0)
+        {
+            HeroView.SetCurrentHealth(savedCurrentHealth);
+        }
+    }
+
+    // Heal the saved hero data to full health (works without a scene HeroView)
+    public void HealSavedHeroToMax()
+    {
+        if (savedMaxHealth < 0)
+        {
+            Debug.LogWarning("HeroSystem.HealSavedHeroToMax: savedMaxHealth not set. Cannot heal to max.");
+            return;
+        }
+
+        savedCurrentHealth = savedMaxHealth;
+
+        // If a scene HeroView exists, update it as well
+        if (HeroView != null)
         {
             HeroView.SetCurrentHealth(savedCurrentHealth);
         }

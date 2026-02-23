@@ -26,8 +26,20 @@ public class HealMenuUI : MonoBehaviour
             yield return null;
         }
 
-        targetSlider.value = 1f;
+        if (targetSlider != null) targetSlider.value = 1f;
 
-        healButton.SetActive(false);
+        // Heal the session-stored hero data to full without requiring a scene HeroView
+        if (HeroSystem.Instance == null)
+        {
+            Debug.LogWarning("HealMenuUI: HeroSystem.Instance is null. Cannot heal.");
+        }
+        else
+        {
+            HeroSystem.Instance.HealSavedHeroToMax();
+        }
+
+        // hide the heal button (or make non-interactable as preferred)
+        if (healButton != null)
+            healButton.SetActive(false);
     }
 }
