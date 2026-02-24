@@ -29,6 +29,10 @@ public class TraversalManager : MonoBehaviour
         {
             SwitchToChest();
         }
+        else if (clickedCaveEntry.CaveEntry.type == CaveEntryType.EXIT)
+        {
+            SwitchToExit();
+        }
     }
     public void SwitchToCombat()
     { 
@@ -60,5 +64,16 @@ public class TraversalManager : MonoBehaviour
             .Perform();
     }
 
-    
+    public void SwitchToExit()
+    {
+        SceneController.Instance
+            .NewTransition()
+            .Load(SceneDatabase.Slots.SessionContent, SceneDatabase.Scenes.Exit, setActive: true)
+            .UnLoad(SceneDatabase.Slots.SessionContent)
+            .WithClearUnusedAssets()
+            .WithLoading()
+            .Perform();
+    }
+
+
 }

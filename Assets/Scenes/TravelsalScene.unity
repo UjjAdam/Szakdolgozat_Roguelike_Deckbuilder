@@ -1155,6 +1155,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5979b279dc979904dbb17b5b47c8669d, type: 2}
   - {fileID: 11400000, guid: 48948f52ee3176547ad25934d0542de0, type: 2}
   - {fileID: 11400000, guid: 881fe48cdd6cfac428a47af34eba01ba, type: 2}
+  - {fileID: 11400000, guid: ea4c7d5078df4214586d87efe50fc3e2, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

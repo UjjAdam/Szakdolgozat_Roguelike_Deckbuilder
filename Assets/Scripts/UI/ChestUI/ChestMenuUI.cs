@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,8 +27,39 @@ public class ChestMenuUI : MonoBehaviour
     {
         CleanupPreview();
 
-        // pick random PerkData and create Perk instance
-        PerkData data = perkPool[Random.Range(0, perkPool.Length)];
+        if (perkPool == null || perkPool.Length == 0)
+        {
+            Debug.LogWarning("ChestMenuUI.GenerateRandomPerk: perkPool is empty.");
+            selectedPerk = null;
+            if (takePerkButton != null) takePerkButton.SetActive(false);
+            if (continueButton != null) continueButton.SetActive(true);
+            return;
+        }
+
+        // Build candidate list excluding perks the player already has (if PerkSystem available)
+        PerkData[] candidates;
+        if (PerkSystem.Instance != null)
+        {
+            var owned = PerkSystem.Instance.AcquiredPerks;
+            candidates = perkPool.Where(d => !owned.Any(o => o.Source == d)).ToArray();
+        }
+        else
+        {
+            candidates = perkPool;
+        }
+
+        if (candidates.Length == 0)
+        {
+            // Player already has all perks in the pool -> nothing new to offer
+            Debug.Log("ChestMenuUI: player already owns all perks from this chest pool.");
+            selectedPerk = null;
+            if (takePerkButton != null) takePerkButton.SetActive(false);
+            if (continueButton != null) continueButton.SetActive(true);
+            return;
+        }
+
+        // pick random PerkData from candidates and create Perk instance
+        PerkData data = candidates[Random.Range(0, candidates.Length)];
         selectedPerk = new Perk(data);
 
         // create PerkUI preview using PerkSystem helper

@@ -24,5 +24,7 @@ public static class SceneDatabase
         public const string Travelsal = "TravelsalScene";
 
         public const string Heal = "HealScene";
+
+        public const string Exit = "ExitScene";
     }
 }
