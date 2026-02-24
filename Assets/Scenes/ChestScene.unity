@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HealMenuUI, Assembly-CSharp
-        m_MethodName: StartSliderAnimation
+      - m_Target: {fileID: 1471354917}
+        m_TargetAssemblyTypeName: ChestMenuUI, Assembly-CSharp
+        m_MethodName: TakePerk
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -554,7 +554,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &408514208
 GameObject:
@@ -649,7 +649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &483765683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1831,6 +1831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1471354916}
+  - component: {fileID: 1471354917}
   m_Layer: 5
   m_Name: ChestMenuUI
   m_TagString: Untagged
@@ -1855,9 +1856,31 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.1385, y: -7.5692}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1200, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1471354917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471354915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b95ec396e29494c976f0a829636dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perkPool:
+  - {fileID: 11400000, guid: 98041c8359b690b4b9d84c9a5bb431a8, type: 2}
+  - {fileID: 11400000, guid: fac157e0631827a4ca7e5f27160ebd1c, type: 2}
+  - {fileID: 11400000, guid: 5b2fd6a2eab219a458cf19ce3f776357, type: 2}
+  - {fileID: 11400000, guid: 18b443b7388af924dade6325df695d37, type: 2}
+  - {fileID: 11400000, guid: 2a54713a374e3694586002781db3da65, type: 2}
+  - {fileID: 11400000, guid: 9e022d71543b780499bef23e0b436dfe, type: 2}
+  perkSlotParent: {fileID: 373439430}
+  takePerkButton: {fileID: 206248895}
+  continueButton: {fileID: 483765682}
 --- !u!1 &1485325410
 GameObject:
   m_ObjectHideFlags: 0

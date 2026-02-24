@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HealScene.unity
     guid: f2d1b2b37e8919744b88673e2a3f17fc
+  - enabled: 1
+    path: Assets/Scenes/ChestScene.unity
+    guid: fafe4ff0ee57b2e4c91fe9826ce95b33
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0

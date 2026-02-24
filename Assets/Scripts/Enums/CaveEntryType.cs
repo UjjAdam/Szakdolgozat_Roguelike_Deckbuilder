@@ -5,5 +5,6 @@ public enum CaveEntryType
     COMBAT,
     CHEST,
     HEALSITE,
-    BOSS
+    BOSS,
+    EXIT
 }

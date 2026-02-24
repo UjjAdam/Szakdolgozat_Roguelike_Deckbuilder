@@ -5,7 +5,6 @@ using UnityEngine;
 public class MatchSetupSystem : MonoBehaviour
 {
     [SerializeField] private HeroData heroData;
-    [SerializeField] private List<PerkData> perkDatas;
     [SerializeField] private List<EnemyData> enemyDatas;
 
     // Start is a coroutine so we can wait for session systems to be ready
@@ -21,7 +20,10 @@ public class MatchSetupSystem : MonoBehaviour
         CardSystem.Instance.Setup(heroData.StarterDeck);
 
         GenerateEnemies();
-        AddPerks();
+
+        // PerkSystem holds the session-acquired perks
+        if (PerkSystem.Instance != null)
+            PerkSystem.Instance.ReapplyPerks();
 
         DrawCardsGameAction drawCardsGA = new(5);
         ActionSystem.Instance.Perform(drawCardsGA);
@@ -43,18 +45,6 @@ public class MatchSetupSystem : MonoBehaviour
 
         EnemySystem.Instance.Setup(enemiesToSpawn);
 
-    }
-
-    private void AddPerks()
-    {
-        //hozzáadja az összes perket a perkDatas-ból mivel, azért kell így mert csak 1 perket ad hozzá a System egyszerre
-        if (perkDatas != null)
-        {
-            foreach (var perkData in perkDatas)
-            {
-                PerkSystem.Instance.AddPerk(new Perk(perkData));
-            }
-        }
     }
 
 }

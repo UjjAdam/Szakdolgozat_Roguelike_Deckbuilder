@@ -3,6 +3,7 @@ using UnityEngine;
 public class TraversalManager : MonoBehaviour
 {
     [SerializeField] private CaveEntryUI clickedCaveEntry;
+    [SerializeField] private FloorNumberUI floorNumberUI;
 
     public void SelectAndTravel(CaveEntryUI caveEntryUI)
     {
@@ -12,6 +13,8 @@ public class TraversalManager : MonoBehaviour
 
     public void ClickTravel()
     {
+        floorNumberUI.IncreaseFloorWhenLeaving();
+
         if (clickedCaveEntry == null) return;
 
         if (clickedCaveEntry.CaveEntry.type == CaveEntryType.COMBAT)

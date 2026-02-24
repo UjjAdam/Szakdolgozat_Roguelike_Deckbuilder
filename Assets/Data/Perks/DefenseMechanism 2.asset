@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e707b10d4f0e7c74e849d067a8854d2f, type: 3}
+  m_Name: DefenseMechanism 2
+  m_EditorClassIdentifier: 
+  <Image>k__BackingField: {fileID: 21300000, guid: 433fcdd8e3c6b7f4581ed3b1be805dce, type: 3}
+  <Description>k__BackingField: Gain 2 Block Before Enemy Attack
+  <PerkCondition>k__BackingField:
+    rid: 1073856107551653957
+  <autoTargetEffect>k__BackingField:
+    rid: 1073856107551653958
+  <UseAutoTarget>k__BackingField: 1
+  <UseActionCasterAsTarget>k__BackingField: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 1073856107551653957
+      type: {class: OnEnemyAttackCondition, ns: , asm: Assembly-CSharp}
+      data:
+        reactionTiming: 0
+    - rid: 1073856107551653958
+      type: {class: AutoTargetEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <TargetMode>k__BackingField:
+          rid: 1073856107551653960
+        <Effect>k__BackingField:
+          rid: 1073856107551653959
+    - rid: 1073856107551653959
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 0
+        stackCount: 2
+    - rid: 1073856107551653960
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
