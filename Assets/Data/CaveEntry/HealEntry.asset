@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 21300000, guid: bd24adf2c7de50a419adbf58ee0cd67c, type: 3}
   <EntryType>k__BackingField: 2
+  <Description>k__BackingField: 'RepairRoom: Fully heal'

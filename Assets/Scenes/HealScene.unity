@@ -267,6 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlider: {fileID: 1340596963}
   healButton: {fileID: 206248895}
+  continueButton: {fileID: 0}
   duration: 3
 --- !u!1 &483765682
 GameObject:
@@ -286,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &483765683
 RectTransform:
   m_ObjectHideFlags: 0

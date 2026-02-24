@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 21300000, guid: 12d3a8cf9cd9bcb4dac6cd70f8f31e0a, type: 3}
   <EntryType>k__BackingField: 4
+  <Description>k__BackingField: Exit at last

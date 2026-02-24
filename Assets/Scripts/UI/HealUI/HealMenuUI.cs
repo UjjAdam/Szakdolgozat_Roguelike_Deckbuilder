@@ -6,6 +6,7 @@ public class HealMenuUI : MonoBehaviour
 {
     [SerializeField] private Slider targetSlider;
     [SerializeField] private GameObject healButton;
+    [SerializeField] private GameObject continueButton;
     public float duration = 3f; 
 
     public void StartSliderAnimation()
@@ -38,8 +39,9 @@ public class HealMenuUI : MonoBehaviour
             HeroSystem.Instance.HealSavedHeroToMax();
         }
 
-        // hide the heal button (or make non-interactable as preferred)
+        // hide the heal button activate the continue button
         if (healButton != null)
             healButton.SetActive(false);
+            continueButton.SetActive(true);
     }
 }

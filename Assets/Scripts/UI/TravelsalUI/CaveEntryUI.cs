@@ -3,10 +3,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CaveEntryUI : MonoBehaviour//,IPointerEnterHandler, IPointerExitHandler
+public class CaveEntryUI : MonoBehaviour ,IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image image;
-    [SerializeField] private Button travelButton; 
+    [SerializeField] private GameObject Descriptionbox;
+    [SerializeField] private Button travelButton;
+    [SerializeField] private TMP_Text description;
     public CaveEntry CaveEntry { get; private set; }
 
     private void Awake()
@@ -23,7 +25,7 @@ public class CaveEntryUI : MonoBehaviour//,IPointerEnterHandler, IPointerExitHan
     {
         CaveEntry = cave;
         image.sprite = cave.Image;
-        //description.SetText(perk.Description);
+        description.SetText(cave.Description);
     }
 
     private void OnTravelButtonClicked()
@@ -38,7 +40,7 @@ public class CaveEntryUI : MonoBehaviour//,IPointerEnterHandler, IPointerExitHan
         manager.SelectAndTravel(this);
     }
 
-    /* leírás doboz
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
         Descriptionbox.SetActive(true);
@@ -48,5 +50,5 @@ public class CaveEntryUI : MonoBehaviour//,IPointerEnterHandler, IPointerExitHan
     {
         Descriptionbox.SetActive(false);
     }
-    */
+    
 }

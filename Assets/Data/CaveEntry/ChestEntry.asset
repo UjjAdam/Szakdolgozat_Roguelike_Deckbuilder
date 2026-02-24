@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 21300000, guid: 1e1f52961ab23bb4ba0f8e6ad2c886e3, type: 3}
   <EntryType>k__BackingField: 1
+  <Description>k__BackingField: 'Treasure: 1 random Perk'

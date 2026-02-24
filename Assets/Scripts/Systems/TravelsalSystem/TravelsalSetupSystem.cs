@@ -13,13 +13,16 @@ public class TravelsalSetupSystem : MonoBehaviour
 
     private void AddCaveEntry()
     {
-        //hozzáadja az összes cavet a caveDatas-ból
-        if (caveDatas != null)
-        {
-            foreach (var caveData in caveDatas)
-            {
-                CaveEntrySystem.Instance.AddCaveEntry(new CaveEntry(caveData));
-            }
-        }
+        var system = CaveEntrySystem.Instance;
+
+        int total = caveDatas.Count;
+
+        // Pick two distinct random indices (without replacement).
+        int firstIndex = Random.Range(0, total);
+        int secondIndex = Random.Range(0, total - 1);
+        if (secondIndex >= firstIndex) secondIndex++;
+
+        system.AddCaveEntry(new CaveEntry(caveDatas[firstIndex]));
+        system.AddCaveEntry(new CaveEntry(caveDatas[secondIndex]));
     }
 }

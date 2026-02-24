@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f853328995ac0234b9f6d9cb2f91022c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorTracker: 0
+  floorTracker: 1
 --- !u!1 &1515064140
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923316ce4e019c34483f9e822495128e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perksUI: {fileID: 0}
   perkUIPrefab: {fileID: 8120756893126112280, guid: 164d262be2b88934bb554c497fd554e9, type: 3}
 --- !u!1 &1779595935
 GameObject:
