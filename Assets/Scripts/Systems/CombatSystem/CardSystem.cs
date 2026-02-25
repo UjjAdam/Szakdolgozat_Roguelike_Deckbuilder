@@ -138,20 +138,18 @@ public class CardSystem : Singleton<CardSystem>
 
     private IEnumerator DrawCard()
     {
-        // Defensive pop from drawPile to avoid unknown extension methods and null returns
+        // Use the generic Draw extension so the drawn card is selected at random.
         if (drawPile.Count == 0)
         {
             Debug.LogWarning("CardSystem.DrawCard: drawPile empty when trying to draw.");
             yield break;
         }
 
-        int last = drawPile.Count - 1;
-        Card card = drawPile[last];
-        drawPile.RemoveAt(last);
+        Card card = drawPile.Draw(); // now random selection via ListExtensions.Draw<T>()
 
         if (card == null)
         {
-            Debug.LogWarning("CardSystem.DrawCard: popped null Card from drawPile.");
+            Debug.LogWarning("CardSystem.DrawCard: Draw returned null Card from drawPile.");
             yield break;
         }
 
