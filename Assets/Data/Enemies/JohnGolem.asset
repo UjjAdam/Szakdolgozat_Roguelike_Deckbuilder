@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2cf02192f185d54aa087a3bb1a520cd, type: 3}
-  m_Name: GreenEliteGolem
+  m_Name: JohnGolem
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: -2475909616575746043, guid: bd3e37060ce8d564994f85b3a6ceae41, type: 3}
-  <Health>k__BackingField: 70
-  <AttackPower>k__BackingField: 10
+  <Image>k__BackingField: {fileID: 21300000, guid: 68a11c3d9a6afda4b88fa0817ed1d4dd, type: 3}
+  <Health>k__BackingField: 120
+  <AttackPower>k__BackingField: 2
   <ShieldPower>k__BackingField: 0
   <BurnPower>k__BackingField: 0

@@ -10,38 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
-  m_Name: DoubleVolley
+  m_Name: Oilet
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Deal 6 damage two times
-  <Energy>k__BackingField: 2
-  <Image>k__BackingField: {fileID: 8996419540606688224, guid: 0d66a8c4277241c4c9511503afb9223e, type: 3}
+  <Description>k__BackingField: Gain 3 Energy and 3 self damage
+  <Energy>k__BackingField: 0
+  <Image>k__BackingField: {fileID: 21300000, guid: cb6f68914a166c443b9e99228cdf2635, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 1589525801166438484
+      rid: 89209406857412679
     <Effect>k__BackingField:
-      rid: 1589525801166438485
+      rid: 89209406857412680
   - <TargetMode>k__BackingField:
-      rid: 1589525801166438486
+      rid: 89209406857412681
     <Effect>k__BackingField:
-      rid: 1589525801166438487
+      rid: 89209458386010192
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 1589525801166438484
-      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
+    - rid: 89209406857412679
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 1589525801166438485
+    - rid: 89209406857412680
+      type: {class: GainEnergyEffect, ns: , asm: Assembly-CSharp}
+      data:
+        energyAmount: 3
+    - rid: 89209406857412681
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209458386010192
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 6
-    - rid: 1589525801166438486
-      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 1589525801166438487
-      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        damageAmount: 6
+        damageAmount: 3

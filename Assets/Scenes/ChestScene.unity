@@ -1878,6 +1878,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18b443b7388af924dade6325df695d37, type: 2}
   - {fileID: 11400000, guid: 2a54713a374e3694586002781db3da65, type: 2}
   - {fileID: 11400000, guid: 9e022d71543b780499bef23e0b436dfe, type: 2}
+  - {fileID: 11400000, guid: a81da1d8ebee0ce4aabbbddf393f53bc, type: 2}
   perkSlotParent: {fileID: 373439430}
   takePerkButton: {fileID: 206248895}
   continueButton: {fileID: 483765682}

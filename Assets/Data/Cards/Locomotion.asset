@@ -10,26 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
-  m_Name: MineCollapse
+  m_Name: Locomotion
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Kill a random enemy
-  <Energy>k__BackingField: 3
-  <Image>k__BackingField: {fileID: -414809344184757580, guid: 134e57c4f0679eb4dac2cd23526896fa, type: 3}
+  <Description>k__BackingField: Draw 4 cards
+  <Energy>k__BackingField: 2
+  <Image>k__BackingField: {fileID: 21300000, guid: 7e544e888b17035438fff1a6446c4a05, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 1589525801166438478
+      rid: 89209458386010197
     <Effect>k__BackingField:
-      rid: 1589525801166438479
+      rid: 89209458386010198
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 1589525801166438478
-      type: {class: RandomEnemiesTargetMode, ns: , asm: Assembly-CSharp}
+    - rid: 89209458386010197
+      type: {class: NoTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 1589525801166438479
-      type: {class: DestroyRandomEnemyEffect, ns: , asm: Assembly-CSharp}
-      data: 
+    - rid: 89209458386010198
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        drawAmount: 4

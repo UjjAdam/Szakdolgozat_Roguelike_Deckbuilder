@@ -553,6 +553,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7923135761919841248, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923135761919841248, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8259320286953489291, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
       propertyPath: burnSprite
       value: 
@@ -563,11 +571,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: a224b0ccb57542847b5cda9734995736, type: 3}
     - target: {fileID: 9108098275172597540, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9108098275172597540, guid: 0ef3ca69664fe7b4b8d3a77b58769669, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

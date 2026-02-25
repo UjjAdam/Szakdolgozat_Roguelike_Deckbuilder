@@ -10,38 +10,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
-  m_Name: DoubleVolley
+  m_Name: SpontaniusCombustion
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Deal 6 damage two times
-  <Energy>k__BackingField: 2
-  <Image>k__BackingField: {fileID: 8996419540606688224, guid: 0d66a8c4277241c4c9511503afb9223e, type: 3}
+  <Description>k__BackingField: Exchange 3 of your health to deal 6 all enemies and
+    draw 1 card
+  <Energy>k__BackingField: 0
+  <Image>k__BackingField: {fileID: 21300000, guid: dc3c28bee92b3784db86e22d38328ed7, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 1589525801166438484
+      rid: 89209458386010186
     <Effect>k__BackingField:
-      rid: 1589525801166438485
+      rid: 89209458386010187
   - <TargetMode>k__BackingField:
-      rid: 1589525801166438486
+      rid: 89209458386010188
     <Effect>k__BackingField:
-      rid: 1589525801166438487
+      rid: 89209458386010189
+  - <TargetMode>k__BackingField:
+      rid: 89209458386010190
+    <Effect>k__BackingField:
+      rid: 89209458386010191
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 1589525801166438484
+    - rid: 89209458386010186
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209458386010187
+      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damageAmount: 3
+    - rid: 89209458386010188
       type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 1589525801166438485
+    - rid: 89209458386010189
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
         damageAmount: 6
-    - rid: 1589525801166438486
-      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
+    - rid: 89209458386010190
+      type: {class: NoTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 1589525801166438487
-      type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
+    - rid: 89209458386010191
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 6
+        drawAmount: 1
