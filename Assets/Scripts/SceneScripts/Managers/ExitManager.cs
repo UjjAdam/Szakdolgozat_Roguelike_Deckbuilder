@@ -13,5 +13,7 @@ public class ExitManager : MonoBehaviour
             .WithLoading()
             .WithClearUnusedAssets()
             .Perform();
+
+            ProgressSystem.Instance?.ResetRun();
     }
 }

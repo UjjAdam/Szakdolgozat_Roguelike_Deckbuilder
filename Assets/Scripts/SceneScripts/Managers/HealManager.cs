@@ -37,6 +37,8 @@ public class HealManager : MonoBehaviour
         EnemySystem.Instance.Reset();
         PerkSystem.Instance.Reset();
         ActionSystem.Instance.Reset();
+
+        ProgressSystem.Instance?.ResetRun();
     }
 
     private void SoftReset()

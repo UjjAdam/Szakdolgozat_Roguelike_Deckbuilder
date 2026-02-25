@@ -13,10 +13,17 @@ public class RewardSystem : MonoBehaviour
 
     public void AddSpecificRewardToDeck(HeroData heroData, CardData cardData)
     {
-        if (heroData == null || cardData == null)
+        if (cardData == null)
             return;
 
-        heroData.StarterDeck.Add(cardData);
+        // Store acquired cards in ProgressSystem for the current run.
+        ProgressSystem.Instance?.AddAcquiredCard(cardData);
+
+        // If CardSystem (combat) exists
+        if (CardSystem.Instance != null)
+        {
+            CardSystem.Instance.Setup(new List<CardData> { cardData });
+        }
     }
 
     public void GenerateRewardCardsUI()
@@ -33,13 +40,10 @@ public class RewardSystem : MonoBehaviour
 
         foreach (var cardData in selected)
         {
-            
             CardViewUI cardViewUI = CardViewUICreator.Instance.CreateCardViewUI(Vector3.zero, Quaternion.identity);
 
-           
             cardViewUI.Setup(cardData, this, heroData, rewardSelectionUI);
 
-            
             Button button = cardViewUI.GetComponentInChildren<Button>();
             if (button != null)
             {

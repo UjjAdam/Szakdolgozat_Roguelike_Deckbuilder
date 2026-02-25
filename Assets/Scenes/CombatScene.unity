@@ -2525,14 +2525,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroData: {fileID: 11400000, guid: 60b42998dd9d833419b34b876a499dfe, type: 2}
-  perkDatas:
-  - {fileID: 11400000, guid: 98041c8359b690b4b9d84c9a5bb431a8, type: 2}
-  - {fileID: 11400000, guid: 18b443b7388af924dade6325df695d37, type: 2}
   enemyDatas:
   - {fileID: 11400000, guid: b5f77d83577e4b54ea9f2e5b053bf3e4, type: 2}
   - {fileID: 11400000, guid: 53fc901c8ccdc2e498fa92ffd0a546c7, type: 2}
   - {fileID: 11400000, guid: 618293187fdbdd3499e07bf12df91ec9, type: 2}
   - {fileID: 11400000, guid: 05d72da79cf4a35419591d854a81e6e1, type: 2}
+  armorUpCard: {fileID: 11400000, guid: ff4c588086d378647b506ad12db728e4, type: 2}
+  drillStrikeCard: {fileID: 11400000, guid: 3f7d2b955731c6249976a7a0e1626351, type: 2}
+  overdriveCard: {fileID: 11400000, guid: cb618acea0170de4cac1fd29a56ea1e4, type: 2}
+  mineCollapseCard: {fileID: 11400000, guid: e7c8974bee8896f44b7849af10cf171c, type: 2}
 --- !u!1 &942498224
 GameObject:
   m_ObjectHideFlags: 0

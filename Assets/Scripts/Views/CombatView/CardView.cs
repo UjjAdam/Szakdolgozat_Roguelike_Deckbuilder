@@ -91,12 +91,7 @@ public class CardView : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             transform.position = MouseUtil.GetMousePositionInWorldSpace(-1);
         }
-
-
-        
     }
-
-    
 
     private void OnMouseDrag()
     {
@@ -146,9 +141,5 @@ public class CardView : MonoBehaviour
             InteractionSystem.Instance.PlayerIsDragging = false;
 
         }
-
-
-
     }
-
 }
