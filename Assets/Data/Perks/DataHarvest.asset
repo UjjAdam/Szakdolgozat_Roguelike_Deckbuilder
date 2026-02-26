@@ -10,33 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e707b10d4f0e7c74e849d067a8854d2f, type: 3}
-  m_Name: CounterAttack3
+  m_Name: DataHarvest
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: -5114178245782678679, guid: b8827ba6d73e9d24a998a566e1794e90, type: 3}
-  <Description>k__BackingField: On Enemy Attack Deal 3 Damage Back
+  <Image>k__BackingField: {fileID: 0}
+  <Description>k__BackingField: Whenever you play a card deal 1 damage to all enemy
   <PerkCondition>k__BackingField:
-    rid: 374558954664493125
+    rid: 89209474704998479
   <autoTargetEffect>k__BackingField:
-    rid: 374558954664493126
-  <UseAutoTarget>k__BackingField: 0
-  <UseActionCasterAsTarget>k__BackingField: 1
+    rid: 89209474704998480
+  <UseAutoTarget>k__BackingField: 1
+  <UseActionCasterAsTarget>k__BackingField: 0
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 374558954664493125
-      type: {class: OnEnemyAttackCondition, ns: , asm: Assembly-CSharp}
+    - rid: 89209474704998479
+      type: {class: OnCardPlayCondition, ns: , asm: Assembly-CSharp}
       data:
         reactionTiming: 1
-    - rid: 374558954664493126
+    - rid: 89209474704998480
       type: {class: AutoTargetEffect, ns: , asm: Assembly-CSharp}
       data:
         <TargetMode>k__BackingField:
-          rid: -2
+          rid: 89209474704998485
         <Effect>k__BackingField:
-          rid: 374558954664493127
-    - rid: 374558954664493127
+          rid: 89209474704998484
+    - rid: 89209474704998484
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 3
+        damageAmount: 1
+    - rid: 89209474704998485
+      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
+      data: 

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e707b10d4f0e7c74e849d067a8854d2f, type: 3}
+  m_Name: USBAssist
+  m_EditorClassIdentifier: 
+  <Image>k__BackingField: {fileID: 0}
+  <Description>k__BackingField: Whenever you play a card gain 1 Armor
+  <PerkCondition>k__BackingField:
+    rid: 89209474704998479
+  <autoTargetEffect>k__BackingField:
+    rid: 89209474704998480
+  <UseAutoTarget>k__BackingField: 1
+  <UseActionCasterAsTarget>k__BackingField: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 89209474704998479
+      type: {class: OnCardPlayCondition, ns: , asm: Assembly-CSharp}
+      data:
+        reactionTiming: 1
+    - rid: 89209474704998480
+      type: {class: AutoTargetEffect, ns: , asm: Assembly-CSharp}
+      data:
+        <TargetMode>k__BackingField:
+          rid: 89209474704998481
+        <Effect>k__BackingField:
+          rid: 89209474704998482
+    - rid: 89209474704998481
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209474704998482
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 0
+        stackCount: 1
