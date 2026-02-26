@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e707b10d4f0e7c74e849d067a8854d2f, type: 3}
   m_Name: DataBreach
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: 14e56e18bef2944428919dcbd37a6aed, type: 3}
   <Description>k__BackingField: Deal 3 damage to all enemies at game start
   <PerkCondition>k__BackingField:
     rid: 89209474704998475
