@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: The Big One
   m_EditorClassIdentifier: 
   <Description>k__BackingField: Does 1 everything
-  <Energy>k__BackingField: 1
+  <Energy>k__BackingField: 0
   <Image>k__BackingField: {fileID: 21300000, guid: ca5265f9e4de01a45ba30645153e325a, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
