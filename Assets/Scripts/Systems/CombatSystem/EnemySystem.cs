@@ -85,6 +85,15 @@ public class EnemySystem : Singleton<EnemySystem>
     {
         EnemyView attacker = attackHeroGA.Attacker;
 
+        // Defensive: attacker may have been destroyed earlier (e.g. burn killed it).
+        // Unity destroyed objects compare equal to null, and accessing transform will throw.
+        if (attacker == null || attacker.gameObject == null)
+            yield break;
+
+        // If attacker is dead, skip its attack.
+        if (attacker.CurrentHealth <= 0)
+            yield break;
+
         // Capture start Y
         float startY = attacker.transform.position.y;
 

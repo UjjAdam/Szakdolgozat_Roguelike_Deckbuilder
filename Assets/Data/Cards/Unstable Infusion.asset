@@ -12,14 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
   m_Name: Unstable Infusion
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: 
+  <Description>k__BackingField: Gain 2 armor, draw 1 card
   <Energy>k__BackingField: 0
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: 279f51ac793bc394a890f14c3cac07d4, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
-  <OtherEffects>k__BackingField: []
+  <OtherEffects>k__BackingField:
+  - <TargetMode>k__BackingField:
+      rid: 89209496158863450
+    <Effect>k__BackingField:
+      rid: 89209496158863451
+  - <TargetMode>k__BackingField:
+      rid: 89209496158863452
+    <Effect>k__BackingField:
+      rid: 89209496158863453
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 89209496158863450
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209496158863451
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 0
+        stackCount: 2
+    - rid: 89209496158863452
+      type: {class: NoTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209496158863453
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        drawAmount: 1
