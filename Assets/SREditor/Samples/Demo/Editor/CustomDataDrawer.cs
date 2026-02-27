@@ -1,7 +1,8 @@
+#if UNITY_EDITOR
 using Demo;
 using SerializeReferenceEditor.Editor;
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
 
 namespace Demo.Editor
 {
@@ -23,3 +24,4 @@ namespace Demo.Editor
 		}
 	}
 }
+#endif //UNITY_EDITOR
