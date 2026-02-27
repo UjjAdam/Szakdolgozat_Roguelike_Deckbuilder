@@ -12,7 +12,7 @@ public class MatchSetupSystem : MonoBehaviour
     [SerializeField] private CardData armorUpCard;
     [SerializeField] private CardData drillStrikeCard;
     [SerializeField] private CardData overdriveCard;
-    [SerializeField] private CardData mineCollapseCard;
+    [SerializeField] private CardData thebigoneCard;
 
     // Start is a coroutine so we can wait for session systems to be ready
     private IEnumerator Start()
@@ -87,7 +87,7 @@ public class MatchSetupSystem : MonoBehaviour
         var deck = new List<CardData>();
 
         // Defensive fallback: if any card references are missing, fall back to heroData.StarterDeck if available.
-        if (armorUpCard == null || drillStrikeCard == null || overdriveCard == null || mineCollapseCard == null)
+        if (armorUpCard == null || drillStrikeCard == null || overdriveCard == null || thebigoneCard == null)
         {
             if (heroData != null && heroData.StarterDeck != null && heroData.StarterDeck.Count > 0)
             {
@@ -110,7 +110,7 @@ public class MatchSetupSystem : MonoBehaviour
         deck.Add(overdriveCard);
 
         // 1 Mine Collapse
-        deck.Add(mineCollapseCard);
+        deck.Add(thebigoneCard);
 
         return deck;
     }

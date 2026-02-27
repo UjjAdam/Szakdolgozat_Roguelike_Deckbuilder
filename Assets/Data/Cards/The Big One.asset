@@ -30,6 +30,14 @@ MonoBehaviour:
       rid: 89209458386010184
     <Effect>k__BackingField:
       rid: 89209458386010185
+  - <TargetMode>k__BackingField:
+      rid: 89209496158863360
+    <Effect>k__BackingField:
+      rid: 89209496158863361
+  - <TargetMode>k__BackingField:
+      rid: 89209496158863362
+    <Effect>k__BackingField:
+      rid: 89209496158863363
   references:
     version: 2
     RefIds:
@@ -58,3 +66,17 @@ MonoBehaviour:
       data:
         statusEffectType: 1
         stackCount: 1
+    - rid: 89209496158863360
+      type: {class: NoTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209496158863361
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        drawAmount: 1
+    - rid: 89209496158863362
+      type: {class: NoTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209496158863363
+      type: {class: GainEnergyEffect, ns: , asm: Assembly-CSharp}
+      data:
+        energyAmount: 1

@@ -14,12 +14,41 @@ public class TravelsalSetupSystem : MonoBehaviour
 
     private void AddCaveEntry()
     {
-       
+
         var system = CaveEntrySystem.Instance;
-        
+
+
+        // If ProgressSystem is available and floorTracker == 10 -> force both entries to be COMBAT
+        var progress = FindFirstObjectByType<ProgressSystem>();
+        if (progress != null && progress.floorTracker == 10)
+        {
+            var combats = caveDatas.Where(d => d.EntryType == CaveEntryType.COMBAT).ToList();
+            if (combats.Count == 0)
+            {
+                Debug.LogWarning("TravelsalSetupSystem: no COMBAT entries found in caveDatas for floor 10, falling back to normal selection.");
+                // fallthrough to normal selection below
+            }
+            else if (combats.Count == 1)
+            {
+                // only one COMBAT available -> add it twice
+                system.AddCaveEntry(new CaveEntry(combats[0]));
+                system.AddCaveEntry(new CaveEntry(combats[0]));
+                return;
+            }
+            else
+            {
+                // choose two distinct COMBAT entries
+                int totalCombats = combats.Count;
+                int first = Random.Range(0, totalCombats);
+                int second = Random.Range(0, totalCombats - 1);
+                if (second >= first) second++;
+                system.AddCaveEntry(new CaveEntry(combats[first]));
+                system.AddCaveEntry(new CaveEntry(combats[second]));
+                return;
+            }
+        }
 
         // If ProgressSystem is available and floorTracker == 11 -> force both entries to be EXIT
-        var progress = FindFirstObjectByType<ProgressSystem>();
         if (progress != null && progress.floorTracker == 11)
         {
             var exits = caveDatas.Where(d => d.EntryType == CaveEntryType.EXIT).ToList();

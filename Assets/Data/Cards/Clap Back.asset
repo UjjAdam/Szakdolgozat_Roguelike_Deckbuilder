@@ -10,27 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
-  m_Name: RockShatter
+  m_Name: Clap Back
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Deal 10 damage to all enemies.
-  <Energy>k__BackingField: 2
-  <Image>k__BackingField: {fileID: 9220593326914855491, guid: 6c697895b2c0bff43946c024bb601ced, type: 3}
+  <Description>k__BackingField: Deal 3 damage, gain 3 armor
+  <Energy>k__BackingField: 1
+  <Image>k__BackingField: {fileID: 21300000, guid: a840d059e307f994885c5d276ae55cd9, type: 3}
   <ManualTargetEffect>k__BackingField:
-    rid: -2
+    rid: 89209496158863441
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 1589525801166438482
+      rid: 89209496158863442
     <Effect>k__BackingField:
-      rid: 5386291372730351685
+      rid: 89209496158863443
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 1589525801166438482
-      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
-      data: 
-    - rid: 5386291372730351685
+    - rid: 89209496158863441
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 10
+        damageAmount: 3
+    - rid: 89209496158863442
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209496158863443
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 0
+        stackCount: 3

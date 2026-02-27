@@ -10,49 +10,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
-  m_Name: SpontaniusCombustion
+  m_Name: Meteorite
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: 3 self damage, 6 to all, draw 1 card
-  <Energy>k__BackingField: 0
-  <Image>k__BackingField: {fileID: 21300000, guid: dc3c28bee92b3784db86e22d38328ed7, type: 3}
+  <Description>k__BackingField: Deal 3 damage to ALL, 2 burn all enemy
+  <Energy>k__BackingField: 1
+  <Image>k__BackingField: {fileID: 21300000, guid: 9ad2571ddd307174dae387e73d3cb2e7, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 89209458386010186
+      rid: 89209496158863444
     <Effect>k__BackingField:
-      rid: 89209458386010187
+      rid: 89209496158863445
   - <TargetMode>k__BackingField:
-      rid: 89209458386010188
+      rid: 89209496158863446
     <Effect>k__BackingField:
-      rid: 89209458386010189
+      rid: 89209496158863447
   - <TargetMode>k__BackingField:
-      rid: 89209458386010190
+      rid: 89209496158863448
     <Effect>k__BackingField:
-      rid: 89209458386010191
+      rid: 89209496158863449
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 89209458386010186
-      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
+    - rid: 89209496158863444
+      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 89209458386010187
+    - rid: 89209496158863445
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
         damageAmount: 3
-    - rid: 89209458386010188
-      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
+    - rid: 89209496158863446
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 89209458386010189
+    - rid: 89209496158863447
       type: {class: DealDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 6
-    - rid: 89209458386010190
-      type: {class: NoTargetMode, ns: , asm: Assembly-CSharp}
+        damageAmount: 3
+    - rid: 89209496158863448
+      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 89209458386010191
-      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+    - rid: 89209496158863449
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
-        drawAmount: 1
+        statusEffectType: 1
+        stackCount: 2

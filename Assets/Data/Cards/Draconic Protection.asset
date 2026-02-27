@@ -10,38 +10,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f18b9dd75a298e84984aa84d1636e1d2, type: 3}
-  m_Name: OverClock
+  m_Name: Draconic Protection
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: Gain 3 Energy and 3 Burn
-  <Energy>k__BackingField: 1
-  <Image>k__BackingField: {fileID: 21300000, guid: 41671911f6c2e674482cafd3f5bccbea, type: 3}
+  <Description>k__BackingField: Gain 8 armor and 1 burn, 3 burn all enemy
+  <Energy>k__BackingField: 2
+  <Image>k__BackingField: {fileID: 21300000, guid: 01933a724b20a2444a4e5f72036dee44, type: 3}
   <ManualTargetEffect>k__BackingField:
     rid: -2
   <OtherEffects>k__BackingField:
   - <TargetMode>k__BackingField:
-      rid: 89209406857412679
+      rid: 89209496158863435
     <Effect>k__BackingField:
-      rid: 89209406857412680
+      rid: 89209496158863436
   - <TargetMode>k__BackingField:
-      rid: 89209406857412681
+      rid: 89209496158863437
     <Effect>k__BackingField:
-      rid: 89209406857412682
+      rid: 89209496158863438
+  - <TargetMode>k__BackingField:
+      rid: 89209496158863439
+    <Effect>k__BackingField:
+      rid: 89209496158863440
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 89209406857412679
+    - rid: 89209496158863435
       type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 89209406857412680
-      type: {class: GainEnergyEffect, ns: , asm: Assembly-CSharp}
+    - rid: 89209496158863436
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
-        energyAmount: 3
-    - rid: 89209406857412681
+        statusEffectType: 0
+        stackCount: 8
+    - rid: 89209496158863437
       type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 89209406857412682
+    - rid: 89209496158863438
+      type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffectType: 1
+        stackCount: 1
+    - rid: 89209496158863439
+      type: {class: AllEnemiesTargetMode, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 89209496158863440
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
         statusEffectType: 1

@@ -2534,7 +2534,7 @@ MonoBehaviour:
   armorUpCard: {fileID: 11400000, guid: ff4c588086d378647b506ad12db728e4, type: 2}
   drillStrikeCard: {fileID: 11400000, guid: 3f7d2b955731c6249976a7a0e1626351, type: 2}
   overdriveCard: {fileID: 11400000, guid: cb618acea0170de4cac1fd29a56ea1e4, type: 2}
-  mineCollapseCard: {fileID: 11400000, guid: 6ae1e7679ded7e44f9f0a90d70f9d5ce, type: 2}
+  thebigoneCard: {fileID: 11400000, guid: 6ae1e7679ded7e44f9f0a90d70f9d5ce, type: 2}
 --- !u!1 &942498224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3406,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7d891a113413304d93c17b5064928e4, type: 2}
   - {fileID: 11400000, guid: 6ae1e7679ded7e44f9f0a90d70f9d5ce, type: 2}
   - {fileID: 11400000, guid: f50ab207b1d6b9049b8d15dcda765cf4, type: 2}
+  - {fileID: 11400000, guid: 3077011b7da91f34bb79f78999820509, type: 2}
+  - {fileID: 11400000, guid: 457df09be827cc04b96e9cc5ff8d2a82, type: 2}
+  - {fileID: 11400000, guid: ac831f87d9317bc4683b1153a547a7e0, type: 2}
+  - {fileID: 11400000, guid: ed84ff26be5bbe542897d9419312594a, type: 2}
   rewardSelectionUI: {fileID: 1809807054}
   heroData: {fileID: 11400000, guid: 60b42998dd9d833419b34b876a499dfe, type: 2}
 --- !u!1 &1453664920

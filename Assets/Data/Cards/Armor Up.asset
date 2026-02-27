@@ -34,4 +34,4 @@ MonoBehaviour:
       type: {class: AddStatusEffectEffect, ns: , asm: Assembly-CSharp}
       data:
         statusEffectType: 0
-        stackCount: 5
+        stackCount: 4
