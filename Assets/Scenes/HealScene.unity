@@ -1449,8 +1449,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1388078159}
   - {fileID: 1471354916}
+  - {fileID: 1388078159}
   - {fileID: 833211906}
   m_Father: {fileID: 1524684255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1990,6 +1990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1388078159}
   - component: {fileID: 1388078160}
+  - component: {fileID: 1388078161}
   m_Layer: 5
   m_Name: PauseMenuUI
   m_TagString: Untagged
@@ -2031,6 +2032,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseScreen: {fileID: 682835314}
+--- !u!210 &1388078161
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388078158}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 99
+  m_SortAtRoot: 0
 --- !u!1 &1471354915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,6 +2053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1471354916}
+  - component: {fileID: 1471354917}
   m_Layer: 5
   m_Name: HealMenu
   m_TagString: Untagged
@@ -2067,6 +2081,18 @@ RectTransform:
   m_AnchoredPosition: {x: -15.1385, y: -7.5692}
   m_SizeDelta: {x: 1200, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1471354917
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471354915}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 50
+  m_SortAtRoot: 0
 --- !u!1 &1485325410
 GameObject:
   m_ObjectHideFlags: 0

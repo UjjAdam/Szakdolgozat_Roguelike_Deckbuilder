@@ -15,7 +15,7 @@ MonoBehaviour:
   <Image>k__BackingField: {fileID: 21300000, guid: 592825fea255354439ed0e3e1df8de58, type: 3}
   <Description>k__BackingField: After 1st turn you will have 4 energy
   <PerkCondition>k__BackingField:
-    rid: 89209474704998486
+    rid: 7205624356739481666
   <autoTargetEffect>k__BackingField:
     rid: 89209474704998488
   <UseAutoTarget>k__BackingField: 1
@@ -23,21 +23,21 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 89209474704998486
-      type: {class: OnRefillEnergyCondition, ns: , asm: Assembly-CSharp}
-      data:
-        reactionTiming: 1
     - rid: 89209474704998488
       type: {class: AutoTargetEffect, ns: , asm: Assembly-CSharp}
       data:
         <TargetMode>k__BackingField:
-          rid: 89209474704998489
+          rid: 7205624356739481670
         <Effect>k__BackingField:
           rid: 89209474704998490
-    - rid: 89209474704998489
-      type: {class: NoTargetMode, ns: , asm: Assembly-CSharp}
-      data: 
     - rid: 89209474704998490
       type: {class: GainEnergyEffect, ns: , asm: Assembly-CSharp}
       data:
         energyAmount: 1
+    - rid: 7205624356739481666
+      type: {class: OnEnemyTurnCondition, ns: , asm: Assembly-CSharp}
+      data:
+        reactionTiming: 1
+    - rid: 7205624356739481670
+      type: {class: HeroTargetMode, ns: , asm: Assembly-CSharp}
+      data: 

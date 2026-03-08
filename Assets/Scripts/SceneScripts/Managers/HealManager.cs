@@ -33,10 +33,10 @@ public class HealManager : MonoBehaviour
     {
         SoftReset();
 
-        CardSystem.Instance.ResetDeck();
-        EnemySystem.Instance.Reset();
-        PerkSystem.Instance.Reset();
-        ActionSystem.Instance.Reset();
+        CardSystem.Instance?.ResetDeck();
+        EnemySystem.Instance?.Reset();
+        PerkSystem.Instance?.Reset();
+        ActionSystem.Instance?.Reset();
 
         ProgressSystem.Instance?.ResetRun();
     }
