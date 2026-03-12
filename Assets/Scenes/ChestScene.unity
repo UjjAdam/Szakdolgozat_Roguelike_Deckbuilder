@@ -2010,7 +2010,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkPool:
+  - {fileID: 11400000, guid: d3123eb02de41a94cb4f585c29078cbd, type: 2}
+  - {fileID: 11400000, guid: 57b2937d3f6e7fa4384bbfeba1c07835, type: 2}
+  - {fileID: 11400000, guid: 98041c8359b690b4b9d84c9a5bb431a8, type: 2}
+  - {fileID: 11400000, guid: e34877a293024134fa313622983d8239, type: 2}
+  - {fileID: 11400000, guid: a1214423b88e7f24d8b1ec731dfe423c, type: 2}
+  - {fileID: 11400000, guid: 2a54713a374e3694586002781db3da65, type: 2}
+  - {fileID: 11400000, guid: 9f7a777e2f473f54191098fd1e1c450a, type: 2}
   - {fileID: 11400000, guid: bb823dc01b78d9646b66d4f8e4e309b7, type: 2}
+  - {fileID: 11400000, guid: 3b94e538be5434c439f273eb6408edd3, type: 2}
+  - {fileID: 11400000, guid: 47b31bfb032c8604bb15b733d940e7e0, type: 2}
+  - {fileID: 11400000, guid: a81da1d8ebee0ce4aabbbddf393f53bc, type: 2}
+  - {fileID: 11400000, guid: 0fe64e1b5021ce34f8547cfbe87b3813, type: 2}
+  - {fileID: 11400000, guid: 5aeb9428f4863c04cab9667b75d0b058, type: 2}
   perkSlotParent: {fileID: 373439430}
   takePerkButton: {fileID: 206248895}
   continueButton: {fileID: 483765682}
